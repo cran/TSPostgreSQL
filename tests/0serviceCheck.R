@@ -24,11 +24,11 @@ if(identical(as.logical(service), TRUE)) {
        # specifying host as NULL or "localhost" results in a socket connection
        host    <- Sys.getenv("POSTGRES_HOST")
        if ("" == host)     host <- Sys.info()["nodename"] 
-       if ("" == passwd)   passwd <- NULL
        passwd  <- Sys.getenv("POSTGRES_PASSWD")
+       if ("" == passwd)   passwd <- NULL
        #  See  ?"dbConnect-methods"
-       con <- dbConnect(m,
-          username=user, password=passwd, host=host, dbname=dbname)  
+       con <- dbConnect(m, dbname=dbname,
+          user=user, password=passwd, host=host)  
      }else  {
         if (is.null(dbname))   dbname <- "test" #RPostgreSQL default is template1
 	#( the postgres driver may also use PGDATABASE, PGHOST, PGPORT, PGUSER )
@@ -37,7 +37,7 @@ if(identical(as.logical(service), TRUE)) {
 	host <- Sys.getenv("POSTGRES_HOST")
 	if ("" == host) host  <- Sys.getenv("PGHOST")
 	if ("" == host) host  <- "localhost"  #Sys.info()["nodename"] 
-	#get user/passwd/dbase in ~/.pgpass
+	#get user/passwd in ~/.pgpass
 	con <- dbConnect(m, dbname=dbname, host=host) 
        }
    # dbListTables(con) needs a non-null dbname
