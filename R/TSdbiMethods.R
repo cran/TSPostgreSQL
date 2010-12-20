@@ -19,12 +19,12 @@ setMethod("TSconnect",   signature(drv="PostgreSQLDriver", dbname="character"),
 	  dbDisconnect(con)
           stop("Database ",dbname," has no tables.")
 	  }
-	if(!dbExistsTable(con, "Meta")){
+	if(!dbExistsTable(con, "meta")){ # meta not Meta for PostgreSQL
 	  dbDisconnect(con)
           stop("Database ",dbname," does not appear to be a TS database.")
 	  }
   	new("TSPostgreSQLConnection" , con, drv="PostgreSQL", dbname=dbname, 
- 	       hasVintages=dbExistsTable(con, "vintageAlias"), 
+ 	       hasVintages=dbExistsTable(con, "vintagealias"),  # vintagealias not vintageAlias for PostgreSQL
  	       hasPanels  =dbExistsTable(con, "panels")) 
 	})
 
@@ -69,3 +69,13 @@ setMethod("TSdelete", signature(serIDs="character", con="PostgreSQLConnection"),
    definition= function(serIDs, con=getOption("TSconnection"),  
    vintage=getOption("TSvintage"), panel=getOption("TSpanel"), ...)
        TSdbi:::TSdeleteSQL(serIDs=serIDs, con=con, vintage=vintage, panel=panel) )
+
+setMethod("dropTStable", 
+   signature(con="PostgreSQLConnection", Table="character", yesIknowWhatIamDoing="ANY"),
+   definition= function(con=NULL, Table, yesIknowWhatIamDoing=FALSE){
+    if((!is.logical(yesIknowWhatIamDoing)) || !yesIknowWhatIamDoing)
+      stop("See ?dropTStable! You need to know that you may be doing serious damage.")
+    Table <- tolower(Table) #PostgreSQL converts table names to lower case
+    if(dbExistsTable(con, Table)) dbRemoveTable(con, Table)
+    return(TRUE)
+    } )
