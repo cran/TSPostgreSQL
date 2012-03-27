@@ -1,8 +1,9 @@
-99593bf1448443c794101d78d2b181a7 *DESCRIPTION
+ebc95b27463d04e8bad44c65b4213b47 *DESCRIPTION
 ddd24cfff8eca7b2b77a83a5b5b14ea5 *LICENSE
 3f7985b0cdfda8ebe858acc3cc6fdf73 *NAMESPACE
-6ffed7e116e9ba391bc36f76e9d6720b *NEWS
-c1955956110565501fd3ac20736ecbb6 *R/TSdbiMethods.R
-adf97e7b2d1be774852d8faf94e1f7f9 *inst/doc/Guide.Stex
-f658bb0715b5bc62b9e52bd92cac1621 *inst/doc/Guide.pdf
+e1ad70614ca43ed90d15e857de71de7a *NEWS
+36d6d24a71ac1e8e3e434426d8fbbe5a *R/TSdbiMethods.R
+07a4109a8d3aa478d5fb8d57a973e1b7 *README
+11550e3792f936dbc9ebd1ec9f4ef8cb *inst/doc/Guide.pdf
 65d1c6b59c31a3aa32dcb398427414c4 *man/TSdbiMethods.Rd
+adf97e7b2d1be774852d8faf94e1f7f9 *vignettes/Guide.Stex

@@ -2,6 +2,9 @@
 setClass("TSPostgreSQLConnection", 
    contains=c("PostgreSQLConnection", "conType", "TSdb")) 
 
+setAs("TSPostgreSQLConnection", "integer", 
+  def=getMethod("coerce", c("dbObjectId","integer"))) 
+
 #setMethod("print", "TSPostgreSQLConnection", function(x, ...) {
 #   print(x@TSdb)
 #   })
@@ -76,7 +79,7 @@ setMethod("TSvintages",
    signature(con="TSPostgreSQLConnection"),
    definition=function(con) {
      if(!con@hasVintages) NULL else   
-     dbGetQuery(con,"SELECT  DISTINCT(vintage) FROM  vintages;" )$vintage
+     sort(dbGetQuery(con,"SELECT  DISTINCT(vintage) FROM  vintages;" )$vintage)
      } )
 
 setMethod("dropTStable", 
