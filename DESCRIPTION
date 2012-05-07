@@ -1,17 +1,17 @@
 Package: TSPostgreSQL
-Version: 2012.3-1
+Version: 2012.5-1
 Title: Time Series Database Interface extensions for PostgreSQL
 Description: TSPostgreSQL provides a PostgreSQL interface for TSdbi.
-Depends: R (>= 2.8.0), methods, tframe, tframePlus, TSdbi (>=
+Depends: R (>= 2.8.0), methods, tframe, tframePlus, DBI, TSdbi (>=
         2011.11-1), RPostgreSQL
-Imports: methods, TSdbi (>= 2011.6-1), DBI, RPostgreSQL
-Suggests: zoo, tseries, TShistQuote
+Suggests: zoo, tseries, TShistQuote, tfplot
 Enhances: TSdbi
 BuildVignettes: false
-License: GPL-2 | file LICENSE
+License: GPL-2
+Copyright: 2007-2011 Bank of Canada.  2012 Paul Gilbert.
 Author: Paul Gilbert <pgilbert.ttv9z@ncf.ca>
 Maintainer: Paul Gilbert <pgilbert.ttv9z@ncf.ca>
 URL: http://tsdbi.r-forge.r-project.org/
-Packaged: 2012-03-27 15:08:36 UTC; paul
+Packaged: 2012-05-07 01:18:03 UTC; paul
 Repository: CRAN
-Date/Publication: 2012-03-29 18:20:57
+Date/Publication: 2012-05-08 04:19:34

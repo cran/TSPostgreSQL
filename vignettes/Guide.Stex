@@ -51,10 +51,7 @@ determined by the following logic:
    host    <- Sys.getenv("POSTGRES_HOST")
    if ("" == host) host  <- Sys.getenv("PGHOST")
    if ("" == host) host  <- "localhost"  #Sys.info()["nodename"] 
-   if ("" != user) {
-       passwd  <- Sys.getenv("POSTGRES_PASSWD")
-       if ("" == passwd)   passwd <- NULL
-      }
+   if ("" != user) passwd  <- Sys.getenv("POSTGRES_PASSWD")
 \end{Scode}
 
 
@@ -124,6 +121,7 @@ And now more examples:
  TSget("matc1", con)
  TSget("matc2", con)
  TSget(c("matc1","matc2"), con)
+ require("tfplot")
  tfplot(z+1, TSget(c("matc1","matc2"), con), 
           lty=c("solid", "dashed"), col=c("black", "red"))
 \end{Scode}
