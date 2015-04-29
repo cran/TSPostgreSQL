@@ -3,6 +3,22 @@ See also
    o	See also NEWS in the TSdbi package.
 
 
+Changes in TSPostgreSQL version 2015.4-1
+
+   o	Moved tests to inst/testWithPostgreSQLserver and inst/testWithInternet.
+
+Changes in TSPostgreSQL version 2015.1-1
+
+   o	Changed Depends to Imports for RPostgreSQL
+
+   o	Bumped requirement for DBI up to version 0.3.1 or greater.
+
+   o	Adjusted TSconnect() to use a string or a connection in place of a
+   	driver, and renamed argument drv to q to reflect this change.
+
+   o	Removed dropTStable() from the API. It is now handled by 
+   	removeTSdbTables() in package TSsql.
+
 Changes in TSPostgreSQL version 2013.9-1
 
    o	Using TSsql split from TSdbi.

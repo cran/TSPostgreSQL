@@ -9,6 +9,10 @@ import(tframePlus)
 import(RPostgreSQL) ## this should not all be needed, but parts for setClass "TSPostgreSQLConnection"
 ##importClassesFrom("RPostgreSQL","PostgreSQLConnection")
 
+## not generic
+export(
+  "PostgreSQL")
+
 ## S4 Classes
 exportClasses(
    "TSPostgreSQLConnection"
@@ -26,6 +30,5 @@ exportMethods(
    "TSlabel",
    "TSsource",
    "TSdates",
-   "TSvintages",
-   "dropTStable"
+   "TSvintages"
    )
